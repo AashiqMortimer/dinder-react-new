@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header';
 import TinderCards from './TinderCards';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SwipeButtons from './SwipeButtons';
 
 function App() {
   return (
@@ -19,9 +20,7 @@ function App() {
         </Switch>
         
         
-
-        {/* {Tinder Cards} */}
-        {/* {Buttons below tinder cards} */}
+        <SwipeButtons />
 
         {/* {Chat screen} */}
         {/* {Individual chat screen} */}

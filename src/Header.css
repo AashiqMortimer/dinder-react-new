@@ -10,6 +10,11 @@
     object-fit: contain;
 }
 
-.header__icon {
+.account__icon {
+    padding: 20px;
+    color: #FD5564; 
+}
+
+.message__icon {
     padding: 20px;
 }

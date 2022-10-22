@@ -9,14 +9,14 @@ function Header() {
     // BEM naming convention.
     <div className="header">
         <IconButton>
-            <AccountCircleIcon className="header__icon" fontSize="large"/>
+            <AccountCircleIcon className="account__icon" fontSize="large"/>
         </IconButton>
         <img 
         className="header__logo"
-        src="https://1000logos.net/wp-content/uploads/2018/07/Tinder-logo.png" 
+        src="https://i.ibb.co/fvsZFnj/dinder-Logo-Placeholder.jpg" 
         alt="Tinder logo"/>
         <IconButton>
-            <ForumIcon className="header__icon" fontSize="large"/>
+            <ForumIcon className="message__icon" fontSize="large"/>
         </IconButton>
     </div>
   )

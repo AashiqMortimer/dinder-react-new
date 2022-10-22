@@ -5,19 +5,17 @@ import './TinderCards.css';
 function TinderCards() {
     const [people, setPeople] = useState([
         {
-            name: "Steve Jobs",
-            url: "https://cdn.stylepark.com/articles/2011/steve-jobs-1955-2011/l2_v326043_958_600_567-1.jpg",
+            name: "Pizza",
+            url: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
         }, 
         {
-            name: "Mark Zuckerberg",
-            url: "https://upload.wikimedia.org/wikipedia/commons/e/ef/MarkZuckerberg.jpg",
+            name: "Tacos",
+            url: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=780&q=80",
         }
     ]);
 
   return (
     <div>
-        <h1>Tinder Cards</h1>
-
         <div className="tinderCards__cardContainer">
         {people.map(person => (
             <TinderCard
