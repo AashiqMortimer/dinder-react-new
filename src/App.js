@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-import TinderCards from './TinderCards';
+import RecipeCards from './RecipeCards/RecipeCards';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SwipeButtons from './SwipeButtons';
 import Chats from './Chats';
@@ -22,7 +22,7 @@ function App() {
           </Route>
           <Route path="/">
             <Header /> 
-            <TinderCards />
+            <RecipeCards />
             <SwipeButtons />
           </Route>
         </Switch>

@@ -3,7 +3,7 @@ import TinderCard from 'react-tinder-card';
 import './TinderCards.css';
 import axios from './axios';
 
-function TinderCards() {
+export default function TinderCards() {
     const [people, setPeople] = useState([]);
 
     useEffect(() =>  {
@@ -29,6 +29,7 @@ function TinderCards() {
             >
                 <div 
                 style={{ backgroundImage: `url(${person.imgUrl})` }}
+                //replace this with meal.image
                 className="card"
                 >
                     <h3>{person.name}</h3>
@@ -39,5 +40,3 @@ function TinderCards() {
     </div>
   )
 }
-
-export default TinderCards
