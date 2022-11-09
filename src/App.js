@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-import RecipeCards from './RecipeCards/RecipeCards';
+import MealCard from './MealCards/MealCard';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SwipeButtons from './SwipeButtons';
+//import SwipeButtons from './MealCards/SwipeButtonsHomepage';
 import Chats from './Chats';
 import ChatScreen from './ChatScreen';
 
@@ -22,8 +22,7 @@ function App() {
           </Route>
           <Route path="/">
             <Header /> 
-            <RecipeCards />
-            <SwipeButtons />
+            <MealCard />
           </Route>
         </Switch>
       </Router> 
@@ -34,5 +33,6 @@ function App() {
         // {/* <TinderCards /> */}
         // {/* {Chat screen} */}
         // {/* {Individual chat screen} */}
+        //
 
 export default App;

@@ -3,8 +3,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import TinderCard from 'react-tinder-card';
 
-//define 'RecipeCard' function and export for later use
-export default function RecipeCard({ meal }) {
+//define 'MealCard' function and export for later use
+export default function MealInfo({ meal }) {
 
   //define React hook constants to be used later. 
   const [servings, setServings] = useState("");
@@ -14,12 +14,11 @@ export default function RecipeCard({ meal }) {
     //FETCH method to placeholder JSON file. Collect required information and store in above constants.
     fetch(
       //JSON FILE; placeholder.
-      "http://127.0.0.1:5500/src/RecipeCards/placeholderJSON/recipeinfo.json"
+      "http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
 
       //API call
       //`https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=d3f28846148b47539eff4b6cf0e2f365&includeNutrition=false`
     )  
-      //storing results in a useable format using PROMISES
       .then((response) => response.json())
       .then((data) => {
         setServings(data.servings);
@@ -30,9 +29,9 @@ export default function RecipeCard({ meal }) {
         console.log("error");
       });
   }, [meal.id]);
-  //the second argument here [meal.id] means that the useEffect only fires if meal.id changes. 
+  //the second argument here [meal.id] means that useEffect only fires if meal.id changes. 
 
-  //build the recipe card using variables defined above.
+  //build the meal card using variables defined above.
   return (
     <div>
         <div className="tinderCards__cardContainer">
