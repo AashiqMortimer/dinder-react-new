@@ -3,21 +3,19 @@ import React from "react";
 import { useState, useEffect } from "react";
 import TinderCard from 'react-tinder-card';
 
-//define 'MealCard' function and export for later use
+//MealInfo function collects more information about the recipe and builds the visuals of the meal card.
 export default function MealInfo({ meal }) {
 
-  //define React hook constants to be used later. 
   const [servings, setServings] = useState("");
   const [cookTime, setCookTime] = useState("");
-
   useEffect(() => {
     //FETCH method to placeholder JSON file. Collect required information and store in above constants.
     fetch(
       //JSON FILE; placeholder.
-      "http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
+      //"http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
 
       //API call
-      //`https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=d3f28846148b47539eff4b6cf0e2f365&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=d3f28846148b47539eff4b6cf0e2f365&includeNutrition=false`
     )  
       .then((response) => response.json())
       .then((data) => {
