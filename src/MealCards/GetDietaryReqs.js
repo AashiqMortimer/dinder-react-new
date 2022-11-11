@@ -13,5 +13,4 @@ export default function GetDietaryReqs({ dietaryReqs }) {
         //probably need to do some diet/intolerance mapping to handle multiple responses
       })
   }, []);
-
 }

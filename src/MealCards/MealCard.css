@@ -11,17 +11,31 @@
     box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
 }
 
-/* This controls the title text of the card. */
-.card > h3 {
-    position: absolute;
-    bottom: 10px;
-    color: white;
-}
-
-.tinderCards__cardContainer {
+.tinderCardsContainer {
     display: flex;
     justify-content: center;
     margin-top: 5vh;
+}
+
+.mealInfo {
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+    right: 3%; /*sets position relative to tinderCardContainer*/
+    text-align:center;
+    background-color: #ffffff; /*backup for older browsers*/
+    background-color: rgba(255,255,255,0.75); /*rgba used to achieve opacity*/
+    color: #424242;
+    border-radius: 25px; /* rounds corners */
+    padding: 15px; /*pushes text away from edge*/
+}
+
+.summary{
+    color: #FD3A73;
+    font-style: italic;
+    text-align: center;
+    list-style: none; /*removes bullet points*/
+    padding: 0px; /*removes automatic offset*/
 }
 
 .swipe {

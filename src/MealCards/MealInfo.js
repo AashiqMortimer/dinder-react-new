@@ -34,14 +34,16 @@ export default function MealInfo({ meal }) {
   //build the meal card using variables defined above.
   return (
     <div>
-        <div className="tinderCards__cardContainer">
+        <div className="tinderCardsContainer">
             <TinderCard className="swipe" preventSwipe={['up', 'down']}>
                 <div style={{ backgroundImage: `url(${meal.image})` }} className="card">
+                    <section className="mealInfo">
                     <h3>{meal.title}</h3>
                     <ul className="summary">
                         <li>Preparation Time: {cookTime} minutes</li>
                         <li>Number Of Servings: {servings}</li>
                     </ul>
+                    </section>
                 </div>
             </TinderCard>
         </div>
