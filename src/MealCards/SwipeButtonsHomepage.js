@@ -4,7 +4,7 @@ import "../SwipeButtons.css"
 import CloseIcon from '@mui/icons-material/Close';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { IconButton } from '@mui/material';
-import saveMeal from "../SaveMeal";
+import saveMeal from "./SaveMeal";
 
 //SwipeButtonsHP activates the newMeal function and the saveMeal function depending on requirements. 
 export default function SwipeButtonsHP({newMeal}) {
