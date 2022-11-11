@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './MealCard.css';
 import GetDietaryReqs from "./GetDietaryReqs";
 import MealList from "./MealList";
+import SearchMeal from "./SearchMeal";
 import SwipeButtonsHP from "./SwipeButtonsHomepage";
 //note: make sure a Live Server is running to access the JSON files
 
@@ -10,37 +11,22 @@ export default function MealCard() {
   //dietaryReqs links to GetDietaryReqs to fetch user dietary preferences. 
   const [dietary, setDietary] = useState("");
 
-  function dietaryReqs(dietary) {
+  function DietaryReqs(dietary) {
     setDietary(dietary);
-    //console.log(dietary.intolerances); //debug
+    console.log("dietary reqs fetched: ", dietary.intolerances); //debug
   }
 
   const [mealData, setMealData] = useState(null);
-  const [newMealNeeded, setNewMealNeeded] = useState(true);
+  const [newMealNeeded, setNewMealNeeded] = useState(false);
 
-  //useEffect to fetch a new Meal every time newMealNeeded changes. It runs once before Dietary Reqs are loaded; investigate
-  useEffect(() => {
-    //placeholder for accessing dietary reqs from file. Look into props/callback functions.
-    fetch(
-      //mock search result
-      "http://127.0.0.1:5500/src/MealCards/placeholderJSON/searchmeal.json"
-      //API call
-      //`https://api.spoonacular.com/recipes/complexSearch?apiKey=d3f28846148b47539eff4b6cf0e2f365&diet=${dietary.diet}&intolerances=${dietary.intolerances}&sort=random&number=1&instructionsRequired=true`//
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMealData(data);
-        setNewMealNeeded(false);
-      })
-      .catch(() => {
-        console.log("error");
-        //error handling
-      });
-  }, [newMealNeeded]
-  );
+  function GetMealData(mealData) {
+    setMealData(mealData);
+    console.log("MealData fetched: ", {mealData});
+  }
 
-  function newMeal() {
-    setNewMealNeeded(true);
+  function NewMeal(newMeal) {
+    setNewMealNeeded(newMeal);
+    console.log("New Meal: ", newMealNeeded);
   }
 
   //return the card.
@@ -48,13 +34,15 @@ export default function MealCard() {
     <div className="App">
 
       <section>
-        <GetDietaryReqs dietaryReqs={dietaryReqs} />
+        <GetDietaryReqs dietaryReqs={DietaryReqs} />
       </section>
+
+      {dietary && <SearchMeal dietary={dietary} newMealNeeded={newMealNeeded} getMealData={GetMealData} newMeal={NewMeal} />}
 
       {mealData && <MealList mealData={mealData} />}
 
       <section>
-        <SwipeButtonsHP newMeal={newMeal} />
+        <SwipeButtonsHP newMeal={NewMeal} />
       </section>
     </div>
   );

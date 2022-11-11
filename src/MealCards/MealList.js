@@ -6,7 +6,7 @@ export default function MealList({ mealData }) {
   return (
     <main>
       <section className="results">
-        {mealData.results.map((meal) => {
+        {mealData.map((meal) => {
           return <MealInfo key={meal.id} meal={meal} />;
         })} 
       </section>

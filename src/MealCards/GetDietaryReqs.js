@@ -9,8 +9,12 @@ export default function GetDietaryReqs({ dietaryReqs }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        dietaryReqs(data);
+        dietaryReqs(data, "GetDietaryReqs");
         //probably need to do some diet/intolerance mapping to handle multiple responses
       })
+      .catch(() => {
+        console.log("error - dietary reqs");
+        //error handling
+      });
   }, []);
 }
