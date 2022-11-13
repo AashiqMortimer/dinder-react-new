@@ -6,9 +6,9 @@ export default function SearchMeal({ profile, newMealNeeded, getMealData, newMea
     useEffect(() => {
         fetch(
             //mock search result
-            //"http://127.0.0.1:5500/src/MealCards/placeholderJSON/searchmeal.json"
+            "http://127.0.0.1:5500/src/MealCards/placeholderJSON/searchmeal.json"
             //API call
-            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${profile.apiKey}&diet=${profile.diet}&intolerances=${profile.intolerances}&sort=random&number=1&instructionsRequired=true`//
+            //`https://api.spoonacular.com/recipes/complexSearch?apiKey=${profile.apiKey}&diet=${profile.diet}&intolerances=${profile.intolerances}&sort=random&number=1&instructionsRequired=true`//
         )
             .then((response) => response.json())
             .then((data) => {

@@ -3,16 +3,15 @@ import './App.css';
 import Header from './Header';
 import Meal from './MealCards/MealCard';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-//import SwipeButtons from './MealCards/SwipeButtonsHomepage';
-import Chats from './Chats';
-import ChatScreen from './ChatScreen';
+import Chats from './Chats/Chats';
+import ChatScreen from './Chats/ChatScreen';
 
 function App() {
   return (
     <div className="App">
       <Router>
       <Switch>
-          <Route path="/chat/:person">
+          <Route path="/chat/:meal">
             <Header backButton="/chat" />
             <ChatScreen />
           </Route>
@@ -29,10 +28,5 @@ function App() {
     </div>
   );
 }
-
-        // {/* <TinderCards /> */}
-        // {/* {Chat screen} */}
-        // {/* {Individual chat screen} */}
-        //
 
 export default App;

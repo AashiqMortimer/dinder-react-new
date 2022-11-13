@@ -23,6 +23,10 @@ export default function Meal() {
     setMealData(mealData);
     console.log("SearchMeal completed: ", { mealData });
   }
+  function UpdateMeal(mealData, cookTime, servings) {
+    setMealData(current => [...current, cookTime, servings]);
+    console.log(mealData, "updated");
+  }
 
   //NewMeal lets SearchMeal know when to fetch a new meal
   const [newMealNeeded, setNewMealNeeded] = useState(false);
@@ -40,10 +44,10 @@ export default function Meal() {
 
       {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} newMeal={NewMeal} />} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
 
-      {mealData && <MealList mealData={mealData} apiKey={profile.apiKey}/>} {/*use the mealData to build the visuals for the meal card. conditionally renders once mealData != null*/}
+      {mealData && <MealList mealData={mealData} apiKey={profile.apiKey} updateMeal={UpdateMeal}/>} {/*use the mealData to build the visuals for the meal card. conditionally renders once mealData != null*/}
 
       <section>
-        <SwipeButtonsHP newMeal={NewMeal} /> {/*adds the controls*/}
+        <SwipeButtonsHP newMeal={NewMeal} mealData={mealData} /> {/*adds the controls*/}
       </section>
     </div>
   );

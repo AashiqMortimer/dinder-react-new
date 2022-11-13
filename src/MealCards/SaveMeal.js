@@ -1,5 +1,14 @@
-export default function saveRecipe(){
+import axios from "axios";
+
+export default function saveRecipe({mealData}){
+    axios.post('/card', {mealData})
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
     alert("Recipe saved!");
   }
-
-  //placeholder file for the recipe save function :)
+  //doesn't currently work, I think I maybe need to connect to Heroku?

@@ -7,6 +7,12 @@
     border-bottom: 1px solid #fafafa;
 }
 
+.chat:hover {
+    background-color: #FD3A73;
+    border-radius: 25px; /* rounds corners */
+    padding: 15px; /*pushes text away from edge*/
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -18,10 +24,6 @@ a {
 
 .chat__details > p {
     color: gray;
-}
-
-.chat__timestamp {
-    color: lightgray;
 }
 
 .chat__image {

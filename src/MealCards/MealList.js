@@ -2,12 +2,12 @@
 import React from "react"; 
 import MealInfo from "./MealInfo"; 
 
-export default function MealList({ mealData, apiKey}) {
+export default function MealList({ mealData, apiKey, updateMeal}) {
   return (
     <main>
       <section className="results">
         {mealData.map((meal) => {
-          return <MealInfo key={meal.id} meal={meal} apiKey={apiKey}/>;
+          return <MealInfo key={meal.id} meal={meal} apiKey={apiKey} updateMeal={updateMeal}/>;
         })} 
       </section>
     </main>
