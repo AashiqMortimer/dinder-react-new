@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import TinderCard from 'react-tinder-card';
 
 //MealInfo function collects more information about the recipe and builds the visuals of the meal card.
-export default function MealInfo({ meal }) {
+export default function MealInfo({ meal, apiKey }) {
+  console.log(apiKey, "apiKey"); //debug 
 
   const [servings, setServings] = useState("");
   const [cookTime, setCookTime] = useState("");
@@ -15,8 +16,8 @@ export default function MealInfo({ meal }) {
       //"http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
 
       //API call
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=d3f28846148b47539eff4b6cf0e2f365&includeNutrition=false`
-    )  
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}&includeNutrition=false`
+    )
       .then((response) => response.json())
       .then((data) => {
         setServings(data.servings);
@@ -32,19 +33,19 @@ export default function MealInfo({ meal }) {
   //build the meal card using variables defined above.
   return (
     <div>
-        <div className="tinderCardsContainer">
-            <TinderCard className="swipe" preventSwipe={['up', 'down']}>
-                <div style={{ backgroundImage: `url(${meal.image})` }} className="card">
-                    <section className="mealInfo">
-                    <h3>{meal.title}</h3>
-                    <ul className="summary">
-                        <li>Preparation Time: {cookTime} minutes</li>
-                        <li>Number Of Servings: {servings}</li>
-                    </ul>
-                    </section>
-                </div>
-            </TinderCard>
-        </div>
+      <div className="tinderCardsContainer">
+        <TinderCard className="swipe" preventSwipe={['up', 'down']}>
+          <div className="card" style={{ backgroundImage: `url(${meal.image})` }} >
+            <section className="mealInfo">
+              <h3>{meal.title}</h3>
+              <ul className="summary">
+                <li>Preparation Time: {cookTime} minutes</li>
+                <li>Number Of Servings: {servings}</li>
+              </ul>
+            </section>
+          </div>
+        </TinderCard>
+      </div>
     </div>
   );
 }
