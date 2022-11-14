@@ -13,7 +13,7 @@ export default function SwipeButtonsHP({newMeal, mealData}) {
         <IconButton className="swipeButtons__left" onClick = {() => newMeal("true")} >
             <CloseIcon fontSize="large" />
         </IconButton>
-        <IconButton className="swipeButtons__right" onClick = {() => {saveMeal(mealData); newMeal("true")}}>
+        <IconButton className="swipeButtons__right" onClick = {() => {saveMeal({mealData}); newMeal("true")}}>
             <FavoriteIcon fontSize="large" />
         </IconButton>
     </div>

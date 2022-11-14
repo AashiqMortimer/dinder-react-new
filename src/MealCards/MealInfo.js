@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import TinderCard from 'react-tinder-card';
 
 //MealInfo function collects more information about the recipe and builds the visuals of the meal card.
-export default function MealInfo({ meal, apiKey, updateMeal }) {
+export default function MealInfo({meal, apiKey, updateMeal }) {
   console.log(apiKey, "apiKey"); //debug 
 
   const [servings, setServings] = useState("");

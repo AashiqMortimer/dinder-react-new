@@ -3,7 +3,7 @@ import React from 'react';
 import Chat from './Chat';
 import axios from '../axios';
 
-function Chats() {
+export default function Chats() {
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,5 @@ function Chats() {
     </div>
   )
 }
-
-export default Chats
 
 //this works but returns 'Warning: Each child in a list should have a unique "key" prop'. Something to do with the mapping.

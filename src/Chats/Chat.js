@@ -4,8 +4,13 @@ import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom'
 
 function Chat({ meal }) {
+
   return (
-    <Link to={`/chat/${meal.title}`} >
+    <Link to={{
+      pathname: `/chat/${meal.title}`,
+      state: { meal }
+    }}
+    >
       <div className='chat'>
         <Avatar className='chat__image' alt={meal.title} src={meal.image} />
         <div className='chat__details'>

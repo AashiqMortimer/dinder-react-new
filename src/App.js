@@ -4,7 +4,8 @@ import Header from './Header';
 import Meal from './MealCards/MealCard';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chats from './Chats/Chats';
-import ChatScreen from './Chats/ChatScreen';
+//import ChatScreen from './Chats/ChatScreen';
+import ChatScreen from './Recipe/ChatScreen';
 
 function App() {
   return (
