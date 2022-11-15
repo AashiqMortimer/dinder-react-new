@@ -7,6 +7,8 @@ import Chats from './Chats/Chats';
 //import ChatScreen from './Chats/ChatScreen';
 import ChatScreen from './Recipe/ChatScreen';
 
+window.$userID = "1234";
+
 function App() {
   return (
     <div className="App">

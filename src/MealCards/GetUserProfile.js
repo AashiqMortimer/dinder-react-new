@@ -1,20 +1,20 @@
+import axios from 'axios';
 import { useEffect } from 'react';
 
 export default function GetUserProfile({ userProfile }) {
-
+  let profile = {};
   useEffect(() => {
-    fetch(
-      //placeholder for database search
-      "http://127.0.0.1:5500/src/MealCards/placeholderJSON/userprofile.json"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        userProfile(data, "GetUserProfile");
-        //probably need to do some diet/intolerance mapping to handle multiple responses
+    if (window.$userID === "0000") {
+      console.log("guest");
+    }
+    axios.get(`https://dinder-backend-zaar.herokuapp.com/users/${window.$userID}`)
+      .then(function (response) {
+        response.data.map(user =>
+          profile = user)
+        userProfile(profile)
       })
-      .catch(() => {
-        console.log("error - user profile");
-        //error handling
+      .catch(function (err) {
+        console.log("error = user profile", err)
       });
-  }, []);
+  }, [window.$userID])
 }

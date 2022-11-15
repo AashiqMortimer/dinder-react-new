@@ -1,25 +1,27 @@
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import React from 'react';
 import Chat from './Chat';
 import axios from '../axios';
 
 export default function Chats() {
   const [meals, setMeals] = useState([]);
-
-  useEffect(() => {
-    async function fetchMeals() {
-      const req = await axios.get('/card');
-      setMeals(req.data);
-    }
-    fetchMeals();
-  }, [])
-  //change this to .then because async isn't supported by older browsers (and for consistency)
+  if (window.$userID === "0000") {
+    console.log("Guest") //placeholder
+  } else {
+    axios.get('/card')
+      .then(function (response) {
+        setMeals(response.data);
+      })
+      .catch(() => {
+        console.log("error - Chats");
+      });
+  }
 
   return (
     <div>
       <div className='chats'>
         {meals.map(meal => (
-        <Chat key={meal.id} meal={meal}/>))}
+          <Chat key={meal.id} meal={meal} />))}
       </div>
     </div>
   )
