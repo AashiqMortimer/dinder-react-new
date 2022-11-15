@@ -24,7 +24,7 @@ function Header({ backButton }) {
           <img 
           className="header__logo"
           src="https://i.ibb.co/fvsZFnj/dinder-Logo-Placeholder.jpg" 
-          alt="Tinder logo"/>
+          alt="Dinder"/>
         </Link>
         <Link to="/chat">
           <IconButton>

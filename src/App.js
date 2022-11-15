@@ -5,7 +5,7 @@ import Meal from './MealCards/MealCard';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chats from './Chats/Chats';
 //import ChatScreen from './Chats/ChatScreen';
-import ChatScreen from './Recipe/ChatScreen';
+import ChatScreenNew from './Recipe/ChatScreenNew';
 
 window.$userID = "1234";
 
@@ -14,9 +14,9 @@ function App() {
     <div className="App">
       <Router>
       <Switch>
-          <Route path="/chat/:meal">
+          <Route path="/chat/:mealid">
             <Header backButton="/chat" />
-            <ChatScreen />
+            <ChatScreenNew />
           </Route>
           <Route path="/chat">
             <Header backButton="/" />
