@@ -6,7 +6,11 @@ export default function saveRecipe({ mealData }) {
   if (window.$userID === "0000") {
     console.log("Guest") //placeholder
   } else {
-    axios.post('https://dinder-backend-zaar.herokuapp.com/card', mealData)
+    axios.post('https://dinder-backend-zaar.herokuapp.com/card', {
+      "mealID": mealData.id,
+      "title": mealData.title,
+      "image": mealData.image
+    })
       .then(function (response) {
         console.log(response)
       })
