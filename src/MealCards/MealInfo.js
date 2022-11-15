@@ -2,10 +2,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import TinderCard from 'react-tinder-card';
+//this runs when mealData is initialised. stop it?
 
 //MealInfo function collects more information about the recipe and builds the visuals of the meal card.
-export default function MealInfo({meal, apiKey, updateMeal }) {
-  console.log(apiKey, "apiKey"); //debug 
+export default function MealInfo({meal, apiKey}) {
+  console.log(apiKey, "DEBUG from Meal Info"); //debug 
 
   const [servings, setServings] = useState("");
   const [cookTime, setCookTime] = useState("");
@@ -13,10 +14,10 @@ export default function MealInfo({meal, apiKey, updateMeal }) {
     //FETCH method to placeholder JSON file. Collect required information and store in above constants.
     fetch(
       //JSON FILE; placeholder.
-      "http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
+      //"http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
 
       //API call
-      //`https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
