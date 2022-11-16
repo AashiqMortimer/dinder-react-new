@@ -1,5 +1,5 @@
 //note: make sure a Live Server is running to access the JSON files
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 
 import GetUserProfile from "./GetUserProfile";
 //import MealList from "./MealList";
@@ -18,23 +18,25 @@ export default function Meal() {
     //console.log("user profile fetched: ", profile.apiKey); //debug
   }
 
+    //NewMeal lets SearchMeal know when to fetch a new meal
+    const [newMealNeeded, setNewMealNeeded] = useState(false);
+    function NewMeal(newMeal) {
+      setNewMealNeeded(newMeal);
+      console.log("New Meal: ", newMealNeeded);
+    }
+
   //GetMealData links to SearchMeal to return new meal data.
   const [mealData, setMealData] = useState(null); //meal data is null so that conditional rendering works. 
-  function GetMealData(mealData) {
+  //const GetMealData = useCallback(() => {
+    function GetMealData(mealData){
     setMealData(mealData);
     console.log("SearchMeal completed: ", { mealData });
   }
+  //, [mealData])
   //function UpdateMeal(mealData, cookTime, servings) {
     //setMealData(current => [...current, cookTime, servings]);
    // console.log(mealData, "updated");
   //}
-
-  //NewMeal lets SearchMeal know when to fetch a new meal
-  const [newMealNeeded, setNewMealNeeded] = useState(false);
-  function NewMeal(newMeal) {
-    setNewMealNeeded(newMeal);
-    console.log("New Meal: ", newMealNeeded);
-  }
 
   //Return builds the meal card.
   return (

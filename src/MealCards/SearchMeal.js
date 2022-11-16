@@ -1,9 +1,9 @@
 ////note: make sure a Live Server is running to access the JSON files
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 //SearchMeal uses var dietary to make an API call to the Complex Search endpoint when newMealNeeded changes
-export default function SearchMeal({ profile, newMealNeeded, getMealData, newMeal }) {
-    let mealData = {};
+export default function SearchMeal({ profile, newMealNeeded, getMealData }) {
+    let mealData = useRef({});
     useEffect(() => {
         fetch(
             //mock search result
@@ -15,13 +15,13 @@ export default function SearchMeal({ profile, newMealNeeded, getMealData, newMea
             .then((data) => {
                 console.log(profile, "DEBUG from SearchMeal"); //debug; stops unused var error when using JSON file. 
                 data.results.map(meal =>
-                    mealData = meal
+                    mealData.current = meal
                 )
-                getMealData(mealData);
+                console.log(mealData.current, "current meal")
+                getMealData(mealData.current);
             })
             .catch((err) => {
                 console.log(err, "error - search meal");//error handling
             });
-        //console.log
     }, [newMealNeeded]);
 }

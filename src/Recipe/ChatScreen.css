@@ -11,7 +11,7 @@
     border-radius: 20px;
 }
 
-.chatScreen__timestamp {
+.chatScreenIntro {
     text-align: center;
     padding: 20px;
     color: grey;
@@ -40,10 +40,10 @@
     border: none;
 }
 
-.chatScreen__inputButton {
+.chatScreenButton {
     border: none;
     margin-right: 20px;
-    background-color: white;
+    background-color: #fe3d71;
     font-weight: bolder;
-    color: #fe3d71;
+    color: #ffffff;
 }

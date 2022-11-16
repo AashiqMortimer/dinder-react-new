@@ -1,28 +1,28 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useRef} from 'react';
 
 export default function GetUserProfile({ userProfile }) {
-  let profile = {
+  const profile = useRef({
     "userID": "", "apiKey": "",
     "dietary": "", "intolerances": ""
+  });
+  const temp = useRef({});
+  if (window.$userID === "0000") {
+    console.log("guest"); //placeholder
   };
-  let temp = {};
   useEffect(() => {
-    if (window.$userID === "0000") {
-      console.log("guest"); //placeholder
-    }
     axios.get(`https://dinder-backend-zaar.herokuapp.com/users/${window.$userID}`)
       .then(function (response) {
         response.data.map(user =>
-          temp = user)
-        profile.userID = temp.userID;
-        profile.apiKey = temp.apiKey;
-        profile.dietary = temp.dietary;
-        profile.intolerances = temp.intolerances;
-        userProfile(profile)
+          temp.current = user)
+        profile.current.userID = temp.current.userID;
+        profile.current.apiKey = temp.current.apiKey;
+        profile.current.dietary = temp.current.dietary;
+        profile.current.intolerances = temp.current.intolerances; //collecting only the necessary data for security. 
+        userProfile(profile.current)
       })
       .catch(function (err) {
         console.log("error = user profile", err)
       });
-  }, [window.$userID])
+  },[])
 }
