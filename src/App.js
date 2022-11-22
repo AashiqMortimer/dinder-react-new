@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-import Meal from './MealCards/MealCard';
+import Meal from './MealCards/Meal';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chats from './Chats/Chats';
 import ChatScreenNew from './Recipe/ChatScreenNew';

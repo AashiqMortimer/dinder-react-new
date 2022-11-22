@@ -2,12 +2,11 @@
 import React, { useState, useCallback } from 'react'
 
 import GetUserProfile from "./GetUserProfile";
-//import MealList from "./MealList";
 import MealInfo from "./MealInfo";
 import SearchMeal from "./SearchMeal";
 import SwipeButtonsHP from "./SwipeButtonsHomepage";
 
-import './MealCard.css';
+import './Meal.css';
 
 //MealCard collects information for and builds a new Meal card.
 export default function Meal() {
@@ -20,14 +19,14 @@ export default function Meal() {
 
   //GetMealData links to SearchMeal to return new meal data.
   const [mealData, setMealData] = useState(null);
-   //meal data is null so that conditional rendering works. 
-   function GetMealData(mealData){
+  //meal data is null so that conditional rendering works. 
+  function GetMealData(mealData) {
     setMealData(mealData);
     console.log("SearchMeal completed: ", { mealData });
   }
 
- //NewMeal lets SearchMeal know when to fetch a new meal
- const [newMealNeeded, setNewMealNeeded] = useState("false");
+  //NewMeal lets SearchMeal know when to fetch a new meal
+  const [newMealNeeded, setNewMealNeeded] = useState("true");
   function NewMeal(newMeal) {
     setNewMealNeeded(newMeal);
     console.log("New Meal: ", newMealNeeded);
@@ -40,9 +39,9 @@ export default function Meal() {
         <GetUserProfile userProfile={UserProfile} /> {/*fetch the user profile on load*/}
       </section>
 
-      {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} newMeal={NewMeal}/>} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
+      {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} newMeal={NewMeal} />} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
 
-      {mealData && <MealInfo meal={mealData} apiKey={profile.apiKey}/>} {/*use the mealData to build the visuals for the meal card. conditionally renders once mealData != null*/}
+      {mealData && <MealInfo meal={mealData} apiKey={profile.apiKey} newMealNeeded={newMealNeeded} newMeal={NewMeal} />} {/*use the mealData to build the visuals for the meal card. conditionally renders once mealData != null*/}
 
       <section>
         <SwipeButtonsHP newMeal={NewMeal} mealData={mealData} /> {/*adds the controls*/}

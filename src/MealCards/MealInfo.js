@@ -5,31 +5,33 @@ import TinderCard from 'react-tinder-card';
 //this runs when mealData is initialised. stop it?
 
 //MealInfo function collects more information about the recipe and builds the visuals of the meal card.
-export default function MealInfo({meal, apiKey}) {
+export default function MealInfo({ meal, apiKey, newMeal, newMealNeeded }) {
   console.log(apiKey, "DEBUG from Meal Info"); //debug 
 
   const [servings, setServings] = useState("");
   const [cookTime, setCookTime] = useState("");
   useEffect(() => {
-    //FETCH method to placeholder JSON file. Collect required information and store in above constants.
-    fetch(
-      //JSON FILE; placeholder.
-      "http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
+    if (newMealNeeded === "true") {
+      //FETCH method to placeholder JSON file. Collect required information and store in above constants.
+      fetch(
+        //JSON FILE; placeholder.
+        "http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
 
-      //API call
-      //`https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}&includeNutrition=false`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setServings(data.servings);
-        setCookTime(data.readyInMinutes);
-      })
-      //error handling.
-      .catch(() => {
-        console.log("error - meal info");
-      });
-  }, [meal.id]);
-  //[meal.id] means that useEffect only fires if meal.id changes. 
+        //API call
+        //`https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}&includeNutrition=false`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setServings(data.servings);
+          setCookTime(data.readyInMinutes);
+          newMeal("false");
+        })
+        //error handling.
+        .catch(() => {
+          console.log("error - meal info");
+        });
+    }
+  }, [meal.id, newMealNeeded]); 
 
   //build the meal card using variables defined above.
   return (

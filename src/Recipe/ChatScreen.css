@@ -13,6 +13,7 @@
     grid-template-columns: 0fr 100fr;
     background-color:antiquewhite;
 }
+
 .chatScreenFooter{
     display: flex;
     height: 60px;
