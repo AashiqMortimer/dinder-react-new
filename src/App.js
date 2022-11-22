@@ -4,8 +4,8 @@ import Header from './Header';
 import Meal from './MealCards/MealCard';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chats from './Chats/Chats';
-//import ChatScreen from './Chats/ChatScreen';
 import ChatScreenNew from './Recipe/ChatScreenNew';
+//import ChatScreen from './Recipe/ChatScreen';
 
 window.$userID = "1234";
 

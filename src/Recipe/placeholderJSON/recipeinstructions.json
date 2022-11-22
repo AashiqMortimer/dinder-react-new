@@ -14,7 +14,13 @@
                         }
                     }
                 ],
-                "ingredients": [],
+                "ingredients": [
+                    {
+                        "id": 19334,
+                        "image": "light-brown-sugar.jpg",
+                        "name": "banana"
+                    }
+                ],
                 "number": 1,
                 "step": "Preheat the oven to 200 degrees F."
             },

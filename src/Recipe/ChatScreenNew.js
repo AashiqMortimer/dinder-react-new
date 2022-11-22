@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import "./ChatScreen.css";
-import FetchRecipe from "./FetchRecipe"
+import FetchRecipe from "./FetchRecipe";
+import PaintRecipe from "./PaintRecipe";
+import TidyInfo from "./TidyInfo.js";
 import UserApi from "./UserApi";
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-//import LoadingButton from '@mui/material/LoadingButton';
 
 
 export default function ChatScreen() {
@@ -40,7 +41,13 @@ export default function ChatScreen() {
     const [ingred, setIngred] = useState(null);
     function GetIngred(ingred) {
         setIngred(ingred);
-        console.log(ingred, "Ingredients");
+        console.log(ingred, "Debug from Fetch Ingredients");
+    }
+
+    const [steps, setSteps] = useState(null);
+    function GetSteps(steps) {
+        setSteps(steps);
+        console.log(steps, "Debug from Fetch Ingredients");
     }
 
     return (
@@ -49,20 +56,22 @@ export default function ChatScreen() {
 
                 <UserApi getUserAuth={GetUserApi} />
 
-                <section className='chatScreenHeader'>
-                    <p className='chatScreenIntro'>Let's make {meal.title}!</p>
+                <p className='chatScreenHeader'>Let's make {meal.title}!</p>
+
+                <div className='chatScreenContainer'></div>
+                
+                <FetchRecipe apiKey={apiKey} mealID={mealID} newRecipeNeeded={newRecipeNeeded} getAllInfo={GetAllInfo} />
+
+                {allInfo && <TidyInfo allInfo={allInfo} getIngred={GetIngred} getSteps={GetSteps} newRecipe={NewRecipe} newRecipeNeeded={newRecipeNeeded} />}
+
+                {ingred && <PaintRecipe steps={steps} ingred={ingred} meal={meal} />}
+
+                <div className='chatScreenFooter'>
                     <button className='chatScreenButton' onClick={() => NewRecipe("true")}>Get Recipe</button>
-                </section>
-
-                <FetchRecipe apiKey={apiKey} mealID={mealID} newRecipe={NewRecipe} newRecipeNeeded={newRecipeNeeded} getAllInfo={GetAllInfo} />
-
-                {allInfo && <FetchIngred allInfo = {allInfo} getIngred = {GetIngred}/>}
+                </div>
 
             </div>
         </div>
     )
 
-    /*{allInfo && <FetchInstr />}
-
-    <paintRecipe/>*/
 }
