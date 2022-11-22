@@ -4,7 +4,6 @@ import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom'
 
 function Chat({ meal }) {
-//console.log(meal)
   return (
     <Link to={{
       pathname: `/chat/${meal.mealID}`,

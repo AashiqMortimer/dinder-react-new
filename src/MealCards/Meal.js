@@ -39,7 +39,7 @@ export default function Meal() {
         <GetUserProfile userProfile={UserProfile} /> {/*fetch the user profile on load*/}
       </section>
 
-      {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} newMeal={NewMeal} />} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
+      {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} />} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
 
       {mealData && <MealInfo meal={mealData} apiKey={profile.apiKey} newMealNeeded={newMealNeeded} newMeal={NewMeal} />} {/*use the mealData to build the visuals for the meal card. conditionally renders once mealData != null*/}
 

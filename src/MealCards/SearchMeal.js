@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 //getMealData is a function, adding it throws an infinite loop. Ideal solution is to change
 getMealData to a useCallback function, but doing so prevents MealData from updating in SearchMeal
 and the programme stops.*/
-export default function SearchMeal({ profile, newMealNeeded, getMealData, newMeal }) {
+export default function SearchMeal({ profile, newMealNeeded, getMealData}) {
     let mealData = useRef({});
     useEffect(() => {
         if (newMealNeeded === "true") {

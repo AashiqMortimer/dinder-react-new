@@ -5,7 +5,6 @@ export default function FetchRecipe({ apiKey, mealID, newRecipeNeeded, getAllInf
     useEffect(() => {
         if (newRecipeNeeded === "true") {
             let allInfo = [];
-            let temp = [];
             fetch(
                 //JSON placeholder
                 `http://127.0.0.1:5500/src/Recipe/placeholderJSON/recipeinstructions.json`
@@ -16,7 +15,7 @@ export default function FetchRecipe({ apiKey, mealID, newRecipeNeeded, getAllInf
                 .then((data) => {
                     for (var i=0; i<data.length; i++){
                             allInfo.push(data[i].steps) 
-                    }
+                    } //change this to map for consistency
                     getAllInfo(allInfo);
                 })
                 .catch((err) => {

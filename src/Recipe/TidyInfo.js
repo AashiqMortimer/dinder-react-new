@@ -15,7 +15,7 @@ export default function TidyInfo({ allInfo, getIngred, getSteps, newRecipeNeeded
                 })
             }
 
-            ingred = [...new Set(temp)]; //handle duplicates
+            ingred = [...new Set(temp)]; //handles duplicates
 
             getSteps(step);
             getIngred(ingred);

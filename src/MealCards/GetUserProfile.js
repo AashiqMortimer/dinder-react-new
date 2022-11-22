@@ -25,4 +25,6 @@ export default function GetUserProfile({ userProfile }) {
         console.log("error = user profile", err)
       });
   },[])
+
+  return null;
 }
