@@ -1,20 +1,37 @@
-.chatScreen__message {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-}
 
-.chatScreen__text {
-    margin-left: 10px;
-    background-color: lightgray;
-    padding: 15px;
-    border-radius: 20px;
+
+.chatScreenHeader{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+    background-color: pink;
 }
 
 .chatScreenIntro {
     text-align: center;
+    font-size: 20px;
     padding: 20px;
     color: grey;
+}
+
+.chatScreenButton {
+    position: absolute;
+    bottom: 5%;
+    border: none;
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 25px;
+    margin-right: 20px;
+    background-color: #fe3d71;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.chatScreenButton:hover{
+    color: #fe3d71;
+    background-color: #ffffff;
+    outline: 20px;
+    outline-color: #fe3d71;
 }
 
 .chatScreen__textUser {
@@ -40,10 +57,17 @@
     border: none;
 }
 
-.chatScreenButton {
-    border: none;
-    margin-right: 20px;
-    background-color: #fe3d71;
-    font-weight: bolder;
-    color: #ffffff;
+
+
+.chatScreen__message {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.chatScreen__text {
+    margin-left: 10px;
+    background-color: lightgray;
+    padding: 15px;
+    border-radius: 20px;
 }

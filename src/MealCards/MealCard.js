@@ -18,25 +18,20 @@ export default function Meal() {
     //console.log("user profile fetched: ", profile.apiKey); //debug
   }
 
-    //NewMeal lets SearchMeal know when to fetch a new meal
-    const [newMealNeeded, setNewMealNeeded] = useState(false);
-    function NewMeal(newMeal) {
-      setNewMealNeeded(newMeal);
-      console.log("New Meal: ", newMealNeeded);
-    }
-
   //GetMealData links to SearchMeal to return new meal data.
-  const [mealData, setMealData] = useState(null); //meal data is null so that conditional rendering works. 
-  //const GetMealData = useCallback(() => {
-    function GetMealData(mealData){
+  const [mealData, setMealData] = useState(null);
+   //meal data is null so that conditional rendering works. 
+   function GetMealData(mealData){
     setMealData(mealData);
     console.log("SearchMeal completed: ", { mealData });
   }
-  //, [mealData])
-  //function UpdateMeal(mealData, cookTime, servings) {
-    //setMealData(current => [...current, cookTime, servings]);
-   // console.log(mealData, "updated");
-  //}
+
+ //NewMeal lets SearchMeal know when to fetch a new meal
+ const [newMealNeeded, setNewMealNeeded] = useState("false");
+  function NewMeal(newMeal) {
+    setNewMealNeeded(newMeal);
+    console.log("New Meal: ", newMealNeeded);
+  }
 
   //Return builds the meal card.
   return (
@@ -45,7 +40,7 @@ export default function Meal() {
         <GetUserProfile userProfile={UserProfile} /> {/*fetch the user profile on load*/}
       </section>
 
-      {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} newMeal={NewMeal} />} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
+      {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} newMeal={NewMeal}/>} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
 
       {mealData && <MealInfo meal={mealData} apiKey={profile.apiKey}/>} {/*use the mealData to build the visuals for the meal card. conditionally renders once mealData != null*/}
 

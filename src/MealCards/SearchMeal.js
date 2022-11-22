@@ -2,7 +2,11 @@
 import { useEffect, useRef } from "react";
 
 //SearchMeal uses var dietary to make an API call to the Complex Search endpoint when newMealNeeded changes
-export default function SearchMeal({ profile, newMealNeeded, getMealData }) {
+/*SearchMeal throws an ESLint error for missing dependencies for 'getMealData'. However, if
+//getMealData is a function, adding it throws an infinite loop. Ideal solution is to change
+getMealData to a useCallback function, but doing so prevents MealData from updating in SearchMeal
+and the programme stops.*/
+export default function SearchMeal({ profile, newMealNeeded, getMealData, newMeal }) {
     let mealData = useRef({});
     useEffect(() => {
         fetch(
@@ -17,11 +21,11 @@ export default function SearchMeal({ profile, newMealNeeded, getMealData }) {
                 data.results.map(meal =>
                     mealData.current = meal
                 )
-                console.log(mealData.current, "current meal")
                 getMealData(mealData.current);
+                newMeal("false")
             })
             .catch((err) => {
                 console.log(err, "error - search meal");//error handling
             });
-    }, [newMealNeeded]);
+    }, [newMealNeeded, profile]);
 }
