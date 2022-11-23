@@ -7,13 +7,13 @@ export default function TidyInfo({ allInfo, getIngred, getSteps, newRecipeNeeded
             let temp = [];
             let ingred = [];
             let step = [];
-            for (var i = 0; i < allInfo.length; i++) {
-                allInfo[i].map(e => {
-                    step.push(e.step);
-                    e.ingredients.map(el =>
-                        temp.push(el.name))
+            allInfo.map(lvl1 => {
+                lvl1.map(lvl2 => {
+                    step.push(lvl2.step);
+                    lvl2.ingredients.map(lvl3 =>
+                        temp.push(lvl3.name))
                 })
-            }
+            })
 
             ingred = [...new Set(temp)]; //handles duplicates
 
