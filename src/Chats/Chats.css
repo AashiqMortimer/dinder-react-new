@@ -10,6 +10,25 @@
     margin-bottom: 10px;
 }
 
+.noMeals {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    margin: 10vh;
+}
+
+.noMealsMessage {
+    display: block;
+    color: grey;
+    font-style: italic;
+}
+
+.sadFace {
+    display: inline-block;
+    font-size: large;
+}
+
 .chat:hover {
     background-color: #FD3A73;
     border-radius: 25px;

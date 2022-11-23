@@ -12,9 +12,10 @@ import MuiAlert from '@mui/material/Alert';
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
-//SwipeButtonsHP activates the newMeal function and the saveMeal function depending on requirements. 
+ 
 export default function SwipeButtonsHP({ newMeal, mealData, getMealData }) {
     const [open, setOpen] = useState(false);
+
     function HandleClick(){
       setOpen(true);
     };
