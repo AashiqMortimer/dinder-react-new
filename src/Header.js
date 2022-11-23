@@ -5,11 +5,13 @@ import ForumIcon from '@mui/icons-material/Forum';
 import { IconButton } from '@mui/material';
 import { ArrowBackIos } from '@mui/icons-material';
 import { Link, useHistory } from "react-router-dom";
+import GuestAlert from './GuestAlert';
 
 function Header({ backButton }) {
   const history = useHistory();
   return (
     // BEM naming convention.
+    <div>
     <div className="header">
         {backButton ? (
           <IconButton onClick={() => history.replace(backButton)}>
@@ -32,6 +34,11 @@ function Header({ backButton }) {
         </IconButton>
         </Link>
         
+    </div>
+
+    <div> 
+      <GuestAlert/>
+      </div>
     </div>
   )
 }

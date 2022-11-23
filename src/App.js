@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Header from './Header';
 import Meal from './MealCards/Meal';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -10,7 +9,7 @@ import ChatScreenNew from './Recipe/ChatScreenNew';
 import {version} from "react";
 console.log("React Version: ",version);
 
-window.$userID = "A123";
+window.$userID = "0000";
 
 function App() {
   return (

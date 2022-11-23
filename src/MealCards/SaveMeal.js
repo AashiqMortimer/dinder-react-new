@@ -4,7 +4,6 @@ export default function saveRecipe({ mealData}) {
 
   //checking for guest access. Guest data is stored in session storage. 
   if (window.$userID === "0000") {
-    alert("You are not logged in. Your recipes will not be saved once you close the browser");
     //sessionStorage.clear(); //debug
     let saved = sessionStorage.getItem('guest');
     if (saved == null) {
@@ -25,7 +24,6 @@ export default function saveRecipe({ mealData}) {
         console.log(err, "Save Meal");
       });
   }
-  alert("Recipe saved!");
 
   return null;
 }
