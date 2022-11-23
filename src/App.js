@@ -7,7 +7,10 @@ import Chats from './Chats/Chats';
 import ChatScreenNew from './Recipe/ChatScreenNew';
 //import ChatScreen from './Recipe/ChatScreen';
 
-window.$userID = "0000";
+import {version} from "react";
+console.log("React Version: ",version);
+
+window.$userID = "A123";
 
 function App() {
   return (

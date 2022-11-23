@@ -1,12 +1,12 @@
 import React from 'react';
-import './Chat.css';
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom'
 
 function Chat({ meal }) {
+
   return (
     <Link to={{
-      pathname: `/chat/${meal.mealID}`,
+      pathname: `/chat/${meal.id}`,
       state: { meal }
     }}
     >

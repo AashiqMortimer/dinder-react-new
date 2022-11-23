@@ -9,8 +9,22 @@
 
 .chat:hover {
     background-color: #FD3A73;
-    border-radius: 25px; /* rounds corners */
-    padding: 15px; /*pushes text away from edge*/
+    border-radius: 25px;
+    /* rounds corners */
+    padding: 15px;
+    /*pushes text away from edge*/
+}
+
+.addRecipeButton {
+    position: absolute;
+    font-size: 30px;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    margin-right: 20px;
+    background-color: #fe3d71;
+    font-weight: bolder;
+    color: #ffffff;
 }
 
 a {
@@ -22,7 +36,7 @@ a {
     flex: 1;
 }
 
-.chat__details > p {
+.chat__details>p {
     color: gray;
 }
 
