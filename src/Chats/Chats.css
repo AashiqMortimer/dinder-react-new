@@ -4,7 +4,10 @@
     justify-content: space-between;
     padding: 20px;
     height: 70px;
-    border-bottom: 1px solid #fafafa;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .chat:hover {
@@ -13,18 +16,47 @@
     /* rounds corners */
     padding: 15px;
     /*pushes text away from edge*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    height: 70px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: background 0.5s ease-in-out;
 }
 
 .addRecipeButton {
     position: absolute;
-    font-size: 30px;
+    right: 0;
+    bottom: 0;
+    font-size: 20px;
     padding: 15px;
     border: none;
     border-radius: 25px;
     margin-right: 20px;
+    margin-bottom: 20px;
     background-color: #fe3d71;
     font-weight: bolder;
     color: #ffffff;
+}
+
+.addRecipeButton:hover {
+    position: absolute;
+    font-size: 20px;
+    padding: 15px;
+    border: 1px solid #ffdae4;
+    border-radius: 25px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    font-weight: bolder;
+    color: #fe3d71;
+    transition: background 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 a {
