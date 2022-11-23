@@ -47,6 +47,25 @@ export default function ChatScreen() {
         console.log(steps, "Debug from Fetch Ingredients");
     }
 
+    function IfRecipe(allInfo) {
+        if (allInfo.allInfo == null) {
+            return (
+                <div>
+                    <button className='chatScreenButton' onClick={() => NewRecipe("true")}>Get Recipe</button>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <button className='chatScreenButton'>See Ingredients</button>
+                    <button className='chatScreenButton'>See Instructions</button>
+                    <a href={meal.sourceUrl}><button className='chatScreenButton'>Go to Recipe Website</button></a>
+                </div>
+            )
+        }
+    }
+
+
     return (
         <div>
             <div>
@@ -61,16 +80,14 @@ export default function ChatScreen() {
 
                 {allInfo && <TidyInfo allInfo={allInfo} getIngred={GetIngred} getSteps={GetSteps} newRecipe={NewRecipe} newRecipeNeeded={newRecipeNeeded} />}
 
-                {ingred && <PaintRecipe steps={steps} ingred={ingred} meal={meal} />}
+                {ingred && <PaintRecipe steps={steps} ingred={ingred} />}
 
                 <div className='chatScreenFooter'>
-                <button className='chatScreenRecipe' onClick={() => NewRecipe("true")}>Get Ingredients</button>
-                    <button className='chatScreenIngred' onClick={() => NewRecipe("true")}>Get Instructions</button>
-                    <button className='chatScreenURL' >Go to Recipe Website</button>
+                    <IfRecipe allInfo={allInfo} />
                 </div>
 
             </div>
         </div>
     )
-//onClick={location.href = meal.url}
+    //
 }

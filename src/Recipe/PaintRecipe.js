@@ -1,10 +1,18 @@
-export default function PaintRecipe({ steps, ingred, meal }) {
+export default function PaintRecipe({ steps, ingred }) {
 
     var i = 1;
     return (
-        <div className='chatScreen'>
-            {steps.map(step =>
-                <li className='chatBubble' key={step}>Step {i++}. {step}</li>)
-            }
-        </div>)
+        <div>
+            <div className='chatScreenIngred'>
+                {ingred.map(e =>
+                    <li className='chatBubble' key={e}>{e}</li>)
+                }
+            </div>
+            <div className='chatScreenRecipe'>
+                {steps.map(e =>
+                    <li className='chatBubble' key={e}>Step {i++}. {e}</li>)
+                }
+            </div>
+        </div>
+    )
 }
