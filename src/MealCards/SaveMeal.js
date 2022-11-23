@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default function saveRecipe({ mealData }) {
+export default function saveRecipe({ mealData}) {
 
   //checking for guest access. Guest data is stored in session storage. 
   if (window.$userID === "0000") {
@@ -21,8 +21,8 @@ export default function saveRecipe({ mealData }) {
       .then(function (response) {
         console.log(response)
       })
-      .catch(() => {
-        console.log("error - Save Meal");
+      .catch(function(err){
+        console.log(err, "Save Meal");
       });
   }
   alert("Recipe saved!");

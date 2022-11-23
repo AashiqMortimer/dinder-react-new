@@ -50,5 +50,3 @@ export default function Chats() {
     </div>
   )
 }
-
-//this works but returns 'Warning: Each child in a list should have a unique "key" prop'. Something to do with the mapping.

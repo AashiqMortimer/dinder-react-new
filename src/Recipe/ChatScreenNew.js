@@ -10,15 +10,12 @@ import { useLocation } from 'react-router-dom';
 
 export default function ChatScreen() {
 
-    const [mealID, setMealID] = useState("");
     const [meal, setMeal] = useState("");
     let mealData = useLocation();
     useEffect(() => {
-        setMeal(mealData.state.meal); //pulls in the meal data inc. mealID when can be used in the API to search recipe. 
-        setMealID(meal.mealID);
-        console.log(meal.mealID, "mealID")
-    }, [mealID])
-
+        setMeal(mealData.state.meal);
+    }, []);
+    //pulls in the meal data inc. mealID when can be used in the API to search recipe. 
 
     const [apiKey, setApiKey] = useState("");
     function GetUserApi(apiKey) {
@@ -59,19 +56,21 @@ export default function ChatScreen() {
                 <p className='chatScreenHeader'>Let's make {meal.title}!</p>
 
                 <div className='chatScreenContainer'></div>
-                
-                <FetchRecipe apiKey={apiKey} mealID={mealID} newRecipeNeeded={newRecipeNeeded} getAllInfo={GetAllInfo} />
+
+                <FetchRecipe apiKey={apiKey} mealID={meal.id} newRecipeNeeded={newRecipeNeeded} getAllInfo={GetAllInfo} />
 
                 {allInfo && <TidyInfo allInfo={allInfo} getIngred={GetIngred} getSteps={GetSteps} newRecipe={NewRecipe} newRecipeNeeded={newRecipeNeeded} />}
 
                 {ingred && <PaintRecipe steps={steps} ingred={ingred} meal={meal} />}
 
                 <div className='chatScreenFooter'>
-                    <button className='chatScreenButton' onClick={() => NewRecipe("true")}>Get Recipe</button>
+                <button className='chatScreenRecipe' onClick={() => NewRecipe("true")}>Get Ingredients</button>
+                    <button className='chatScreenIngred' onClick={() => NewRecipe("true")}>Get Instructions</button>
+                    <button className='chatScreenURL' >Go to Recipe Website</button>
                 </div>
 
             </div>
         </div>
     )
-
+//onClick={location.href = meal.url}
 }

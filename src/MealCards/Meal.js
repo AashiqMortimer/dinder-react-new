@@ -1,5 +1,5 @@
 //note: make sure a Live Server is running to access the JSON files
-import React, { useState, useCallback } from 'react'
+import React, { useState} from 'react'
 
 import GetUserProfile from "./GetUserProfile";
 import MealInfo from "./MealInfo";
@@ -14,7 +14,6 @@ export default function Meal() {
   const [profile, setProfile] = useState(null);
   function UserProfile(profile) {
     setProfile(profile);
-    //console.log("user profile fetched: ", profile.apiKey); //debug
   }
 
   //GetMealData links to SearchMeal to return new meal data.
@@ -22,14 +21,13 @@ export default function Meal() {
   //meal data is null so that conditional rendering works. 
   function GetMealData(mealData) {
     setMealData(mealData);
-    console.log("SearchMeal completed: ", { mealData });
+    console.log("MealData updated: ", { mealData });
   }
 
   //NewMeal lets SearchMeal know when to fetch a new meal
   const [newMealNeeded, setNewMealNeeded] = useState("true");
   function NewMeal(newMeal) {
     setNewMealNeeded(newMeal);
-    console.log("New Meal: ", newMealNeeded);
   }
 
   //Return builds the meal card.
@@ -41,10 +39,10 @@ export default function Meal() {
 
       {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} />} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
 
-      {mealData && <MealInfo meal={mealData} apiKey={profile.apiKey} newMealNeeded={newMealNeeded} newMeal={NewMeal} />} {/*use the mealData to build the visuals for the meal card. conditionally renders once mealData != null*/}
+      {mealData && <MealInfo meal={mealData} apiKey={profile.apiKey} newMealNeeded={newMealNeeded} getMealData={GetMealData} newMeal={NewMeal} />} {/*use the mealData to build the visuals for the meal card. conditionally renders once mealData != null*/}
 
       <section>
-        <SwipeButtonsHP newMeal={NewMeal} mealData={mealData} /> {/*adds the controls*/}
+        <SwipeButtonsHP newMeal={NewMeal} mealData={mealData} getMealData ={GetMealData} />
       </section>
     </div>
   );
