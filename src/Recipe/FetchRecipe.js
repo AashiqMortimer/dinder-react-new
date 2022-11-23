@@ -23,4 +23,6 @@ export default function FetchRecipe({ apiKey, mealID, newRecipeNeeded, getAllInf
                 });
         }
     }, [newRecipeNeeded]);
+
+    return null;
 }

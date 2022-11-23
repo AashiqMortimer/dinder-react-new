@@ -26,4 +26,6 @@ export default function saveRecipe({ mealData }) {
       });
   }
   alert("Recipe saved!");
+
+  return null;
 }

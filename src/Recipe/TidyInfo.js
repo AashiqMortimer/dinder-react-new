@@ -22,4 +22,6 @@ export default function TidyInfo({ allInfo, getIngred, getSteps, newRecipeNeeded
             newRecipe("false");
         }
     }, [newRecipeNeeded]);
+
+    return null;
 }

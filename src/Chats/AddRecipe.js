@@ -2,4 +2,6 @@
 
 export default function AddRecipe(){
     alert('Recipe Added');
+
+    return null;
 }

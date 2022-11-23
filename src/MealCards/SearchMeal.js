@@ -31,4 +31,6 @@ export default function SearchMeal({ profile, newMealNeeded, getMealData}) {
         }
 
     }, [newMealNeeded, profile]);
+
+    return null;
 }

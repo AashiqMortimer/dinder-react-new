@@ -27,4 +27,6 @@ export default function FindAllInfo({ getAllInfo, apiKey, mealID, newRecipe, new
                 console.log(err, "error - allInfo");//error handling
             });
     },[newRecipeNeeded]);
+
+    return null;
 }

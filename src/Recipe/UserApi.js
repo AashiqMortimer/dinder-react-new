@@ -16,5 +16,7 @@ export default function UserAuth({ getUserAuth }) {
       .catch(function (err) {
         console.log("error -> Recipe Auth", err)
       });
-  }, [])
+  }, []);
+
+  return null;
 }
