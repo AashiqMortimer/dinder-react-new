@@ -37,6 +37,8 @@
     color: #fe3d71;
     background-color: #ffffff;
     border-color:#fe3d71;
+    transition: background 0.5s ease-in-out;
+    cursor: pointer;
 }
 
 .chatScreen{
@@ -56,5 +58,6 @@
 }
 
 .chatBubble:hover{
-    background-color: #fe3d71
+    background-color: #fe3d71;
+    transition: background 0.5s ease-in-out;
 }
