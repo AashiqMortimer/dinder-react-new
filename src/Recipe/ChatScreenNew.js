@@ -57,8 +57,6 @@ export default function ChatScreen() {
         } else {
             return (
                 <div>
-                    <button className='chatScreenButton'>See Ingredients</button>
-                    <button className='chatScreenButton'>See Instructions</button>
                     <a href={meal.sourceUrl}><button className='chatScreenButton'>Go to Recipe Website</button></a>
                 </div>
             )
@@ -68,13 +66,13 @@ export default function ChatScreen() {
 
     return (
         <div>
-            <div>
+            <div >
 
                 <UserApi getUserAuth={GetUserApi} />
 
                 <p className='chatScreenHeader'>Let's make {meal.title}!</p>
 
-                <div className='chatScreenContainer'></div>
+                <div className='chatScreenContainer' style={{ backgroundImage: `url(${meal.image})` }}></div>
 
                 <FetchRecipe apiKey={apiKey} mealID={meal.id} newRecipeNeeded={newRecipeNeeded} getAllInfo={GetAllInfo} />
 
