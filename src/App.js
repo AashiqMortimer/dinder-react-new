@@ -6,7 +6,7 @@ import Chats from './Chats/Chats';
 import ChatScreenNew from './Recipe/ChatScreenNew';
 //import ChatScreen from './Recipe/ChatScreen';
 
-import {version} "react";
+import {version} from "react";
 console.log("React Version: ",version); 
 
 window.$userID = "0000"; //guest
