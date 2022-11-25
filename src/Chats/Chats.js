@@ -30,8 +30,12 @@ export default function Chats() {
           <button className='addRecipeButton' onClick={AddRecipe}>Add A Recipe</button>
         </div>
       )
+    } else {
+      return null
     }
   }
+
+
 
   function HandleEmpty(meals) {
     if (meals.meals == null) {
@@ -44,10 +48,10 @@ export default function Chats() {
       )
     } else {
       return (
-          <div className='chats'>
-            {meals.meals.map(meal => (
-              <Chat key={meal.id} meal={meal} />))}
-          </div>
+        <div className='chats'>
+          {meals.meals.map(meal => (
+            <Chat key={meal.id} meal={meal} />))}
+        </div>
       )
     }
   }
