@@ -15,9 +15,7 @@ export default function Chats() {
     } else {
       axios.get(`https://dinder-backend-zaar.herokuapp.com/card/${window.$userID}`) //need to get queries matching userID only. DOENST WORK
         .then(function (response) {
-          console.log(response, "response")
           setMeals(response.data);
-          console.log(response.data, "response data")
         })
         .catch((err) => {
           console.log(err, "error - Chats");
@@ -40,7 +38,7 @@ export default function Chats() {
 
 
   function HandleEmpty(meals) {
-    if (meals === null  ) {
+    if (meals.meals === null  ) {
       return (
         <div className='noMeals'>
           <h1 className='noMealsMessage'>No meals saved yet!</h1>
