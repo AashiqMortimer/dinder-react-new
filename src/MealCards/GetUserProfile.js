@@ -11,7 +11,6 @@ export default function GetUserProfile({ userProfile }) {
   useEffect(() => {
     if (newFetch === "true") {
       let temp = {};
-      console.log("UserID", window.$userID, newFetch);
       axios.get(`https://dinder-backend-zaar.herokuapp.com/users/${window.$userID}`)
         .then(function (response) {
           response.data.map(user =>

@@ -6,9 +6,9 @@ export default function FetchRecipe({ apiKey, mealID, newRecipeNeeded, getAllInf
             let allInfo = [];
             fetch(
                 //JSON placeholder
-                `http://127.0.0.1:5500/src/Recipe/placeholderJSON/recipeinstructions.json`
+                //`http://127.0.0.1:5500/src/Recipe/placeholderJSON/recipeinstructions.json`
                 //API call
-                //`https://api.spoonacular.com/recipes/${mealID}/analyzedInstructions?apiKey=${apiKey}&stepBreakdown=false`//
+                `https://api.spoonacular.com/recipes/${mealID}/analyzedInstructions?apiKey=${apiKey}&stepBreakdown=false`//
             )
                 .then((response) => response.json())
                 .then((data) => {

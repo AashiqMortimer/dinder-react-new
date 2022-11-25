@@ -11,15 +11,15 @@ export default function MealInfo({ meal, apiKey, newMeal, newMealNeeded, getMeal
       //FETCH method to placeholder JSON file. Collect required information and store in above constants.
       fetch(
         //JSON FILE; placeholder.
-        "http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
+        //"http://127.0.0.1:5500/src/MealCards/placeholderJSON/mealinfo.json"
 
         //API call
-        //`https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}&includeNutrition=false`
+        `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}&includeNutrition=false`
       )
         .then((response) => response.json())
         .then((data) => {
+          meal.userID = window.$userID;
           meal.sourceUrl = data.sourceUrl;
-          console.log(data.sourceUrl, "sourceUrl");
           meal.cookTime = data.readyInMinutes;
           meal.servings = data.servings;
           getMealData(meal);
