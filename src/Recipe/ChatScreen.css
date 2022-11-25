@@ -10,8 +10,9 @@
 
 .chatScreenContainer{
     display: grid;
-    grid-template-columns: 0fr 100fr;
-    background-color:antiquewhite;
+    grid-template-columns: [first] 20% [line2] 75% [line3] 0% [end];
+    grid-template-areas: "ingredBubble . chatBubble";
+    background-color:rgb(255, 255, 255);
 }
 
 .chatScreenFooter{
@@ -47,17 +48,44 @@
 }
 
 .chatBubble {
+    grid-column: 2 / span 3;
+    justify-self: end;
     display: block;
     list-style: none;
     align-items: center;
     padding: 20px;
-    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 4%;
     background-color: lightgray;
+    opacity: 100%;
     padding: 15px;
     border-radius: 20px;
+    width: 98%;
 }
 
 .chatBubble:hover{
     background-color: #fe3d71;
     transition: background 0.5s ease-in-out;
 }
+
+.ingredBubble {
+    grid-column: first / span 2;
+    justify-self: stretch;
+    display: block;
+    list-style: none;
+    align-items: center;
+    padding: 20px;
+    margin-right: 15%;
+    background-color: lightgrey;
+    opacity: 100%;
+    padding: 15px;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.ingredBubble:hover{
+    background-color: #fe3d71;
+    transition: background 0.5s ease-in-out;
+}
+
