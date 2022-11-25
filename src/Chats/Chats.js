@@ -13,18 +13,20 @@ export default function Chats() {
     if (window.$userID === "0000") {
       setMeals(JSON.parse(sessionStorage.getItem('guest')));
     } else {
-      axios.get('/card')
+      axios.get(`https://dinder-backend-zaar.herokuapp.com/card/${window.$userID}`) //need to get queries matching userID only. DOENST WORK
         .then(function (response) {
+          console.log(response, "response")
           setMeals(response.data);
+          console.log(response.data, "response data")
         })
-        .catch(() => {
-          console.log("error - Chats");
+        .catch((err) => {
+          console.log(err, "error - Chats");
         });
     }
   }, [window.$userID]);
 
   function AdminAddMeal() {
-    if (window.$userID[0] === "A") {
+    if (window.$userID[window.$userID.length] === "A") {
       return (
         <div className='addRecipeButtonContainer'>
           <button className='addRecipeButton' onClick={AddRecipe}>Add A Recipe</button>
@@ -38,7 +40,7 @@ export default function Chats() {
 
 
   function HandleEmpty(meals) {
-    if (meals.meals == null) {
+    if (meals === null  ) {
       return (
         <div className='noMeals'>
           <h1 className='noMealsMessage'>No meals saved yet!</h1>
@@ -59,7 +61,7 @@ export default function Chats() {
   return (
     <div>
       <AdminAddMeal />
-      <HandleEmpty meals={meals} />
+      {meals && <HandleEmpty meals={meals} />}
     </div>
   )
 

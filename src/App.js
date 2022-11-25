@@ -10,8 +10,8 @@ import {version} from "react";
 console.log("React Version: ",version); 
 
 //window.$userID = "0000"; //guest
-//window.$userID = "A123"; //admin
-window.$userID = "U123"; //user
+window.$userID = "123A"; //admin
+//window.$userID = "123U"; //user
 
 function App() {
   return (
