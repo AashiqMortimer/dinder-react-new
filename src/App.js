@@ -4,10 +4,10 @@ import Meal from './MealCards/Meal';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chats from './Chats/Chats';
 import ChatScreenNew from './Recipe/ChatScreenNew';
-//import ChatScreen from './Recipe/ChatScreen';
+import Profile from './Profile/Profile';
 
-import {version} from "react";
-console.log("React Version: ",version); 
+import { version } from "react";
+console.log("React Version: ", version);
 
 //window.$userID = "0000"; //guest
 window.$userID = "123A"; //admin
@@ -17,7 +17,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Switch>
+        <Switch>
+          <Route path="/profile">
+            <Header backButton="/" />
+            <Profile />
+          </Route>
           <Route path="/chat/:mealid">
             <Header backButton="/chat" />
             <ChatScreenNew />
@@ -27,11 +31,11 @@ function App() {
             <Chats />
           </Route>
           <Route path="/">
-            <Header /> 
+            <Header />
             <Meal />
           </Route>
         </Switch>
-      </Router> 
+      </Router>
     </div>
   );
 }
