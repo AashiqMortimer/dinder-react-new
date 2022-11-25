@@ -13,5 +13,7 @@ export default function GuestAlert() {
                 Log In to save your recipes for later!
             </Alert>
         )
+    } else {
+        return null;
     }
 }

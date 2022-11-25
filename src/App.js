@@ -9,9 +9,9 @@ import ChatScreenNew from './Recipe/ChatScreenNew';
 import {version} from "react";
 console.log("React Version: ",version); 
 
-window.$userID = "0000"; //guest
+//window.$userID = "0000"; //guest
 //window.$userID = "A123"; //admin
-//window.$userID = "U123"; //user
+window.$userID = "U123"; //user
 
 function App() {
   return (
