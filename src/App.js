@@ -4,7 +4,6 @@ import Meal from './MealCards/Meal';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chats from './Chats/Chats';
 import ChatScreenNew from './Recipe/ChatScreenNew';
-import Profile from './Profile/Profile';
 
 import { version } from "react";
 console.log("React Version: ", version);
@@ -18,10 +17,6 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/profile">
-            <Header backButton="/" />
-            <Profile />
-          </Route>
           <Route path="/chat/:mealid">
             <Header backButton="/chat" />
             <ChatScreenNew />

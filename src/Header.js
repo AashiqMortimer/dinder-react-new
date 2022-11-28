@@ -8,6 +8,7 @@ import { Link, useHistory } from "react-router-dom";
 import GuestAlert from './GuestAlert';
 
 function Header({ backButton }) {
+  const loginurl = `https://user-authentication-dinder.herokuapp.com/`;
   const history = useHistory();
   return (
     // BEM naming convention.
@@ -18,11 +19,9 @@ function Header({ backButton }) {
             <ArrowBackIos fontSize='large' className='header__icon' />
           </IconButton>
         ) : (
-          <Link to="/profile">
-            <IconButton>
-              <AccountCircleIcon className="account__icon" fontSize="large" />
-            </IconButton>
-          </Link>
+          <a href={loginurl}><IconButton>
+            <AccountCircleIcon className="account__icon" fontSize="large" />
+          </IconButton></a>
 
         )}
         <Link to="/">
