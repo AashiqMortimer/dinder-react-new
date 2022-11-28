@@ -1,4 +1,4 @@
-export default function PaintRecipe({ steps, ingred }) {
+export default function PaintRecipe({ steps, ingred, meal }) {
 
     var i = 1;
     return (
@@ -8,7 +8,7 @@ export default function PaintRecipe({ steps, ingred }) {
                     <li className='ingredBubble' key={e}>{e}</li>)
                 }
             </div>
-            <div className='chatScreenRecipe'>
+            <div className='chatScreenRecipe ' style={{ backgroundImage: `url(${meal.image})` }}>
                 {steps.map(e =>
                     <li className='chatBubble' key={e}>Step {i++}. {e}</li>)
                 }

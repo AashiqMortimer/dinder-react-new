@@ -72,13 +72,11 @@ export default function ChatScreen() {
 
                 <p className='chatScreenHeader'>Let's make {meal.title}!</p>
 
-                <div className='chatScreenContainer' style={{ backgroundImage: `url(${meal.image})` }}></div>
-
                 <FetchRecipe apiKey={apiKey} mealID={meal.id} newRecipeNeeded={newRecipeNeeded} getAllInfo={GetAllInfo} />
 
                 {allInfo && <TidyInfo allInfo={allInfo} getIngred={GetIngred} getSteps={GetSteps} newRecipe={NewRecipe} newRecipeNeeded={newRecipeNeeded} />}
 
-                {ingred && <PaintRecipe steps={steps} ingred={ingred} />}
+                {ingred && <PaintRecipe steps={steps} ingred={ingred} meal = {meal}/>}
 
                 <div className='chatScreenFooter'>
                     <IfRecipe allInfo={allInfo} />

@@ -12,32 +12,35 @@ function Header({ backButton }) {
   return (
     // BEM naming convention.
     <div>
-    <div className="header">
+      <div className="header">
         {backButton ? (
           <IconButton onClick={() => history.replace(backButton)}>
-            <ArrowBackIos fontSize='large' className='header__icon'/>
+            <ArrowBackIos fontSize='large' className='header__icon' />
           </IconButton>
         ) : (
-          <IconButton>
-            <AccountCircleIcon className="account__icon" fontSize="large"/>
-          </IconButton>
+          <Link to="/profile">
+            <IconButton>
+              <AccountCircleIcon className="account__icon" fontSize="large" />
+            </IconButton>
+          </Link>
+
         )}
         <Link to="/">
-          <img 
-          className="header__logo"
-          src="https://i.ibb.co/fvsZFnj/dinder-Logo-Placeholder.jpg" 
-          alt="Dinder"/>
+          <img
+            className="header__logo"
+            src="https://i.ibb.co/fvsZFnj/dinder-Logo-Placeholder.jpg"
+            alt="Dinder" />
         </Link>
         <Link to="/chat">
           <IconButton>
-            <ForumIcon className="message__icon" fontSize="large"/>
-        </IconButton>
+            <ForumIcon className="message__icon" fontSize="large" />
+          </IconButton>
         </Link>
-        
-    </div>
 
-    <div> 
-      <GuestAlert/>
+      </div>
+
+      <div>
+        <GuestAlert />
       </div>
     </div>
   )
