@@ -24,7 +24,8 @@ export default function Chats() {
   }, [window.$userID]);
 
   function AdminAddMeal() {
-    if (window.$userID[window.$userID.length] === "A") {
+    console.log(window.$userID[(window.$userID.length-1)]);
+    if (window.$userID[(window.$userID.length)-1] === "A") {
       return (
         <div className='addRecipeButtonContainer'>
           <button className='addRecipeButton' onClick={AddRecipe}>Add A Recipe</button>
