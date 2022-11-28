@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../dinder-backend"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "dinder-react-new"
+	}
+}
