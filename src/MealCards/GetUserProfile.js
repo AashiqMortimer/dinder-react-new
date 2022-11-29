@@ -25,7 +25,7 @@ export default function GetUserProfile({ userProfile }) {
           } else {
             console.log("undefined id");
             window.$userID = "0000";
-            alert('Unknown User');
+            // alert('Unknown User');
             newFetchNeeded("true");
           } //handling unknown userID
         })
