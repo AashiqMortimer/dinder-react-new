@@ -5,17 +5,16 @@ export default function saveRecipe({ mealData }) {
 
   //handling guest storage from sessionStorage
   if (window.$userID === "0000") {
-    //sessionStorage.clear(); //debug
     let saved = sessionStorage.getItem('guest');
-    //checking if there is anythin in sessionStorage; if not, setting up a blank array. 
+    //checking if there is anything in sessionStorage; if not, setting up a blank array.
     if (saved == null) {
       let temp = [];
       temp.push(JSON.parse(saved));
       sessionStorage.setItem('guest', JSON.stringify(temp))
     }
 
-    let temp = JSON.parse(saved) || [];
     //checking if the saved meal already exists in the storage
+    let temp = JSON.parse(saved) || [];
     for (var i = 0; i < temp.length; i++) {
       if (mealData.id === temp[i].id) {
         mealSaved = true;
@@ -23,7 +22,7 @@ export default function saveRecipe({ mealData }) {
       }
     };
     //storing the saved meal.
-    if (mealSaved = false) {
+    if (!mealSaved) {
       temp.push(mealData);
       sessionStorage.setItem('guest', JSON.stringify(temp));
     }
@@ -40,7 +39,7 @@ export default function saveRecipe({ mealData }) {
         };
 
         //storing saved meal in DB
-        if (mealSaved === false) {
+        if (!mealSaved) {
           axios.post('https://dinder-backend-zaar.herokuapp.com/card', mealData)
             .then(function (response) {
               console.log(response)

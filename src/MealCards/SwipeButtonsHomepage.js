@@ -9,10 +9,12 @@ import { IconButton } from '@mui/material';
 import saveMeal from "./SaveMeal";
 import MuiAlert from '@mui/material/Alert';
 
+//functionality for the Snackbar
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
  
+//builds the swipe buttons and adds functionality
 export default function SwipeButtonsHP({ newMeal, mealData, getMealData }) {
     const [open, setOpen] = useState(false);
 

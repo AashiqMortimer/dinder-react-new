@@ -12,7 +12,9 @@ export default function Chats() {
   useEffect(() => {
     if (window.$userID === "0000") {
       setMeals(JSON.parse(sessionStorage.getItem('guest')));
+      console.log("guest");
     } else {
+      console.log("axios");
       axios.get(`https://dinder-backend-zaar.herokuapp.com/card/${window.$userID}`) //need to get queries matching userID only. DOENST WORK
         .then(function (response) {
           setMeals(response.data);
@@ -24,8 +26,8 @@ export default function Chats() {
   }, [window.$userID]);
 
   function AdminAddMeal() {
-    console.log(window.$userID[(window.$userID.length-1)]);
-    if (window.$userID[(window.$userID.length)-1] === "A") {
+    //console.log(window.$userID[(window.$userID.length-1)]);
+    if (window.$userID[(window.$userID.length) - 1] === "A") {
       return (
         <div className='addRecipeButtonContainer'>
           <button className='addRecipeButton' onClick={AddRecipe}>Add A Recipe</button>
@@ -39,7 +41,7 @@ export default function Chats() {
 
 
   function HandleEmpty(meals) {
-    if (meals.meals === null  ) {
+    if (meals.meals === null) {
       return (
         <div className='noMeals'>
           <h1 className='noMealsMessage'>No meals saved yet!</h1>
@@ -56,8 +58,9 @@ export default function Chats() {
       )
     }
   }
-
+  console.log(meals);
   return (
+
     <div>
       <AdminAddMeal />
       {meals && <HandleEmpty meals={meals} />}
