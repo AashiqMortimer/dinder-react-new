@@ -1,7 +1,7 @@
 //note: make sure a Live Server is running to access the JSON files
 import React, { useState} from 'react'
 
-import GetUserProfile from "./GetUserProfile";
+//import GetUserProfile from "./GetUserProfile";
 import MealInfo from "./MealInfo";
 import SearchMeal from "./SearchMeal";
 import SwipeButtonsHP from "./SwipeButtonsHomepage";
@@ -9,12 +9,8 @@ import SwipeButtonsHP from "./SwipeButtonsHomepage";
 import './Meal.css';
 
 //MealCard collects information for and builds a new Meal card.
-export default function Meal() {
-  //DietaryReqs links to GetDietaryReqs to fetch user dietary preferences. 
-  const [profile, setProfile] = useState(null);
-  function UserProfile(profile) {
-    setProfile(profile);
-  }
+export default function Meal({profile}) {
+
 
   //GetMealData links to SearchMeal to return new meal data.
   const [mealData, setMealData] = useState(null);
@@ -33,9 +29,7 @@ export default function Meal() {
   //Return builds the meal card.
   return (
     <div className="Meal">
-      <section>
-        <GetUserProfile userProfile={UserProfile} /> {/*fetch the user profile on load*/}
-      </section>
+
 
       {profile && <SearchMeal profile={profile} newMealNeeded={newMealNeeded} getMealData={GetMealData} />} {/*searches for a new meal based on dietary requirements. only runs once var dietary is valid*/}
 
