@@ -3,22 +3,41 @@
 }
 
 .account__icon{
-    padding: 20px;
+    padding: 10px;
     color: #FD5564; 
-    font-size: large;
+    background-color: none;
+    border: none;
+    width: 30px;
 }
 
 .modal__body{
-    height: 75vh;
+    height: 80vh;
 }
 
 .iframe{
-    height: 100%;
-    width: 100%;
-    border-style: none;
-    border-radius: 10px;
+    height: 90%;
+    width: 90%;
+    margin-left: 5%;
+    border-style:none;
+    border-radius: 20px;
+    box-shadow: 0 0 40px 35px #FD5564;
 }
 
 .button{
     color: #FD5564;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100px;
+    height: 30px;
+    margin-left: 46.5%;
+    position:relative; bottom:15px;
+    border-color: #FD5564;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.button:hover{
+    background-color: #FD5564;
+    color: white;
+    transition: background 0.5s ease-in-out;
 }

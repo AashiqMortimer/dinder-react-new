@@ -10,15 +10,12 @@ const ModalLink = () => {
  
   return (
     <div className="modal__window">
-      <Button onClick={toggle}>
-        <IconButton>
+        <IconButton onClick={toggle}>
             <AccountCircleIcon className="account__icon" 
             //fontSize="large" 
             />
         </IconButton>
-        </Button>
       <Modal size="xl" isOpen={modal} toggle={toggle}>
-        <ModalHeader>Title</ModalHeader>
         <ModalBody className="modal__body">
           <iframe
             className="iframe"
@@ -28,7 +25,7 @@ const ModalLink = () => {
         </ModalBody>
         <ModalFooter>
           <Button className="button" onClick={toggle}>
-            OK{" "}
+            CLOSE{" "}
           </Button>
         </ModalFooter>
       </Modal>
