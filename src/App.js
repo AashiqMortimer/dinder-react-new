@@ -4,17 +4,26 @@ import Meal from './MealCards/Meal';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chats from './Chats/Chats';
 import ChatScreenNew from './Recipe/ChatScreenNew';
+import GetUserProfile from './MealCards/GetUserProfile';
+import { useState } from "react";
 
-import { version } from "react";
-console.log("React Version: ", version);
-
-//window.$userID = "0000"; //guest
-window.$userID = "123A"; //admin
-//window.$userID = "123U"; //user
+//placeholder for accessing stored information from Account functionality
+//localStorage.setItem("userID", "0000") //guest
+//localStorage.setItem("userID", "3969") //user
+localStorage.setItem("userID", "4209") //admin
+//localStorage.setItem("userID", "4222") //unknown user
+window.$userID = localStorage.getItem("userID")
 
 function App() {
+
+  const [profile, setProfile] = useState(null);
+  function UserProfile(profile) {
+    setProfile(profile);
+    console.log("run")
+  }
   return (
     <div className="App">
+      <GetUserProfile userProfile={UserProfile} />
       <Router>
         <Switch>
           <Route path="/chat/:mealid">
@@ -27,7 +36,7 @@ function App() {
           </Route>
           <Route path="/">
             <Header />
-            <Meal />
+            <Meal profile={profile} />
           </Route>
         </Switch>
       </Router>
