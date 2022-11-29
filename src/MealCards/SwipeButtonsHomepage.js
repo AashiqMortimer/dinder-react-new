@@ -28,10 +28,10 @@ export default function SwipeButtonsHP({ newMeal, mealData, getMealData }) {
 
   return (
     <div className="swipeButtons">
-      <IconButton className="swipeButtons__left" onClick={() => { newMeal("true"); getMealData(null) }} >
+      <IconButton className="swipeButtons__left" onClick={() => { newMeal(true); getMealData(null) }} >
         <CloseIcon fontSize="large" />
       </IconButton>
-      <IconButton className="swipeButtons__right" onClick={() => { saveMeal({ mealData }); newMeal("true"); getMealData(null); HandleClick() }}>
+      <IconButton className="swipeButtons__right" onClick={() => { saveMeal({ mealData }); newMeal(true); getMealData(null); HandleClick() }}>
         <FavoriteIcon fontSize="large" />
         <Snackbar open={open} autoHideDuration={1500} onClose={HandleClose}>
           <Alert severity="success" sx={{ width: '100%' }}>

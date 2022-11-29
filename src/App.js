@@ -4,7 +4,7 @@ import Meal from './MealCards/Meal';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chats from './Chats/Chats';
 import ChatScreenNew from './Recipe/ChatScreenNew';
-import GetUserProfile from './MealCards/GetUserProfile';
+import GetUserProfile from './GetUserProfile';
 import { useState } from "react";
 
 //placeholder for accessing stored information from Account functionality

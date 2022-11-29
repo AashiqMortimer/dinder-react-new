@@ -6,7 +6,7 @@ import TinderCard from 'react-tinder-card';
 //MealInfo function collects more information about the recipe and builds the visuals of the meal card.
 export default function MealInfo({ meal, apiKey, newMeal, newMealNeeded, getMealData }) {
   useEffect(() => {
-    if (newMealNeeded === "true") {
+    if (newMealNeeded === true) {
       fetch(
         //API call
         `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=${apiKey}&includeNutrition=false`
@@ -19,7 +19,7 @@ export default function MealInfo({ meal, apiKey, newMeal, newMealNeeded, getMeal
           meal.cookTime = data.readyInMinutes;
           meal.servings = data.servings;
           getMealData(meal);
-          newMeal("false");
+          newMeal(false);
         })
         //error handling.
         .catch((err) => {
