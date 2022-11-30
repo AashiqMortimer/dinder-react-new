@@ -1,25 +1,23 @@
 import { useEffect } from "react";
 
-
+//TidyInfo processes the information gathered from the API into lists
 export default function TidyInfo({ allInfo, getIngred, getSteps, newRecipeNeeded, newRecipe }) {
     useEffect(() => {
         if (newRecipeNeeded === "true") {
             let temp = [];
             let ingred = [];
             let step = [];
-            allInfo.map(lvl1 => {
-                lvl1.map(lvl2 => {
-                    step.push(lvl2.step);
-                    lvl2.ingredients.map(lvl3 =>
-                        temp.push(lvl3.name))
+            allInfo.map(e1 => {
+                e1.map(e2 => {
+                    step.push(e2.step);
+                    e2.ingredients.map(e3 =>
+                        temp.push(e3.name))
                 })
             })
-
             ingred = [...new Set(temp)]; //handles duplicates
-
             getSteps(step);
             getIngred(ingred);
-            newRecipe("false");
+            newRecipe(false);
         }
     }, [newRecipeNeeded]);
 

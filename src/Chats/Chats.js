@@ -25,7 +25,6 @@ export default function Chats({profile}) {
 
   //AdminAddMeal adds an 'Add Meal' button if the user is logged into an Admin account.
   function AdminAddMeal({isAdmin}) {
-    console.log(isAdmin);
     if (isAdmin === true) {
       return (
         <div className='addRecipeButtonContainer'>

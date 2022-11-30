@@ -1,12 +1,11 @@
 import { useEffect } from "react"
 
+//FetchRecipe makes an API call if NewRecipeNeeded is true to collect recipe information
 export default function FetchRecipe({ apiKey, mealID, newRecipeNeeded, getAllInfo }) {
     useEffect(() => {
-        if (newRecipeNeeded === "true") {
+        if (newRecipeNeeded === true) {
             let allInfo = [];
             fetch(
-                //JSON placeholder
-                //`http://127.0.0.1:5500/src/Recipe/placeholderJSON/recipeinstructions.json`
                 //API call
                 `https://api.spoonacular.com/recipes/${mealID}/analyzedInstructions?apiKey=${apiKey}&stepBreakdown=false`//
             )

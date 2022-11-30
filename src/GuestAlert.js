@@ -1,8 +1,8 @@
 import Alert from '@mui/material/Alert';
 
+//GuestAlert adds a ribbon banner if a user is not logged in. 
 export default function GuestAlert() {
     if (window.$userID === "0000") {
-
         return (
             <Alert
                 className='guestAlert'

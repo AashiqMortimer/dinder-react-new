@@ -1,5 +1,5 @@
+//PaintRecipe paints the recipe information on the screen
 export default function PaintRecipe({ steps, ingred, meal }) {
-
     var i = 1;
     return (
         <div class="chatScreenContainer">
