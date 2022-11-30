@@ -1,6 +1,5 @@
 import React from 'react'
 import "./Header.css"
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ForumIcon from '@mui/icons-material/Forum';
 import { IconButton } from '@mui/material';
 import { ArrowBackIos } from '@mui/icons-material';
@@ -9,7 +8,6 @@ import GuestAlert from './GuestAlert';
 import ModalLink from './ModalLink';
 
 function Header({ backButton }) {
-  const loginurl = `https://user-authentication-dinder.herokuapp.com/`;
   const history = useHistory();
   return (
     // BEM naming convention.
