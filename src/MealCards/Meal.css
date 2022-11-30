@@ -17,6 +17,12 @@
     margin-top: 5vh;
 }
 
+.loading{
+    display: block;
+    margin: auto;
+    padding: 100px;
+}
+
 .mealInfo {
     position: absolute;
     bottom: 3%;
