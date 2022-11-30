@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+Installaton instructions:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1) Clone the repository.
+2) Navigate to 'dinder-react-new' in terminal (cd dinder-react-new).
+3) Run 'npm install' to install necessary dependencies.
+    - In the instance of any installation issues, run 'npm install --force'.
+4) Run 'npm start' to execute application.
 
-## Available Scripts
 
-In the project directory, you can run:
+Repository explaination:
 
-### `npm start`
+This repository communicates with the DinDer backend and the UserAuthentication repository, which are hosted on heroku, so they don't need to be running locally in order for this dinder-react-new repository to run.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Application limitations:
 
-### `npm test`
+- We are using the free version of SpoonacularAPI for our recipe retreival API, so are limited to 150 calls per day. You will be alerted if this is the case via a pop-up message in the web app.
+- We are using a free version of Heroku for both DinDer backend and userAuthentication, so the loading latency might be high.
+- The User Authentication function is hosted in a separate Heroku app to the DinDer backend, via an iFrame, and does not communicate with the front   end, so any infomation (e.g. saved recipes, recipe preferences, dietary restictions) put into UserAuthentication is not passed to the DinDer frontend.
+- To test different user functionalities, a placeholder exists in dinder-react-new > src > App.js. See below for instructions on using this placeholder:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+        in App.js, lines 11-14:
 
-### `npm run build`
+        //localStorage.setItem("userID", "0000") //guest
+        //localStorage.setItem("userID", "3969") //user
+        localStorage.setItem("userID", "4209") //admin
+        //localStorage.setItem("userID", "4222") //unknown user
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+        Comment in the account type you wish to test, by removing double slash (//) at the start of the line, only 1 account type may be active at any one time so comment out the other 3 accounts (add '//' at the start of the line) and hit save.
+        In the example above, userID 4209 (admin) is used.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
