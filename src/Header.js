@@ -1,14 +1,13 @@
 import React from 'react'
 import "./Header.css"
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ForumIcon from '@mui/icons-material/Forum';
 import { IconButton } from '@mui/material';
 import { ArrowBackIos } from '@mui/icons-material';
 import { Link, useHistory } from "react-router-dom";
 import GuestAlert from './GuestAlert';
+import ModalLink from './ModalLink';
 
 function Header({ backButton }) {
-  const loginurl = `https://user-authentication-dinder.herokuapp.com/`;
   const history = useHistory();
   return (
     // BEM naming convention.
@@ -19,10 +18,7 @@ function Header({ backButton }) {
             <ArrowBackIos fontSize='large' className='header__icon' />
           </IconButton>
         ) : (
-          <a href={loginurl}><IconButton>
-            <AccountCircleIcon className="account__icon" fontSize="large" />
-          </IconButton></a>
-
+          <ModalLink />
         )}
         <Link to="/">
           <img
