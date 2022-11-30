@@ -6,16 +6,14 @@ import AddRecipe from './AddRecipe';
 import SentimentDissatisfiedTwoToneIcon from '@mui/icons-material/SentimentDissatisfiedTwoTone';
 import './Chats.css';
 
-
-export default function Chats() {
+export default function Chats({profile}) {
   const [meals, setMeals] = useState(null);
   useEffect(() => {
     if (window.$userID === "0000") {
       setMeals(JSON.parse(sessionStorage.getItem('guest')));
-      console.log("guest");
     } else {
-      console.log("axios");
-      axios.get(`https://dinder-backend-zaar.herokuapp.com/card/${window.$userID}`) //need to get queries matching userID only. DOENST WORK
+      axios.get(`https://dinder-backend-zaar.herokuapp.com/card`) 
+      //axios.get(`https://dinder-backend-zaar.herokuapp.com/card/${window.$userID}`) //this searches by userID specifically. This stopped working for some reason.
         .then(function (response) {
           setMeals(response.data);
         })
@@ -23,11 +21,12 @@ export default function Chats() {
           console.log(err, "error - Chats");
         });
     }
-  }, [window.$userID]);
+  }, []);
 
-  function AdminAddMeal() {
-    //console.log(window.$userID[(window.$userID.length-1)]);
-    if (window.$userID[(window.$userID.length) - 1] === "A") {
+  //AdminAddMeal adds an 'Add Meal' button if the user is logged into an Admin account.
+  function AdminAddMeal({isAdmin}) {
+    console.log(isAdmin);
+    if (isAdmin === true) {
       return (
         <div className='addRecipeButtonContainer'>
           <button className='addRecipeButton' onClick={AddRecipe}>Add A Recipe</button>
@@ -38,8 +37,7 @@ export default function Chats() {
     }
   }
 
-
-
+  //HandleEmpty displays an error message if the saved meal list is empty
   function HandleEmpty(meals) {
     if (meals.meals === null) {
       return (
@@ -58,13 +56,10 @@ export default function Chats() {
       )
     }
   }
-  console.log(meals);
   return (
-
     <div>
-      <AdminAddMeal />
+      <AdminAddMeal isAdmin = {profile.isAdmin}/>
       {meals && <HandleEmpty meals={meals} />}
     </div>
   )
-
 }

@@ -8,9 +8,9 @@ import GetUserProfile from './GetUserProfile';
 import { useState } from "react";
 
 //placeholder for accessing stored information from Account functionality
-localStorage.setItem("userID", "0000") //guest
+//localStorage.setItem("userID", "0000") //guest
 //localStorage.setItem("userID", "3969") //user
-//localStorage.setItem("userID", "4209") //admin
+localStorage.setItem("userID", "4209") //admin
 //localStorage.setItem("userID", "4222") //unknown user
 window.$userID = localStorage.getItem("userID")
 
@@ -19,7 +19,7 @@ function App() {
   const [profile, setProfile] = useState(null);
   function UserProfile(profile) {
     setProfile(profile);
-    console.log(profile)
+    console.log(profile.isAdmin);
   }
 
   return (
@@ -33,7 +33,7 @@ function App() {
           </Route>
           <Route path="/chat">
             <Header backButton="/" />
-            <Chats />
+            <Chats profile = {profile}/>
           </Route>
           <Route path="/">
             <Header />
