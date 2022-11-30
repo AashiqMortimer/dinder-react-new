@@ -40,4 +40,5 @@
     background-color: #FD5564;
     color: white;
     transition: background 0.5s ease-in-out;
+    cursor: pointer;
 }
