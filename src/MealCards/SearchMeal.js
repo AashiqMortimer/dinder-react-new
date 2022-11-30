@@ -16,6 +16,8 @@ export default function SearchMeal({ profile, newMealNeeded, getMealData }) {
                     )
                 })
                 .catch((err) => {
+                    alert("You are out of API Calls for Today!")
+                    getMealData([]);
                     console.log(err, "error - search meal");
                 });
         }

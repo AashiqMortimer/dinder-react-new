@@ -33,7 +33,7 @@ export default function MealInfo({ meal, apiKey, newMeal, newMealNeeded, getMeal
     <div>
       <div className="tinderCardsContainer">
         <TinderCard className="swipe" preventSwipe={['up', 'down']}>
-          <div className="card" style={{ backgroundImage: `url(${meal.image})`}} alt={meal.title}>
+          <div className="card" style={{ backgroundImage: `url(${meal.image})` }} alt={meal.title}>
             <section className="mealInfo">
               <h3>{meal.title}</h3>
               <ul className="summary">

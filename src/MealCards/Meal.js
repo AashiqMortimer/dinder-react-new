@@ -13,7 +13,6 @@ export default function Meal({ profile }) {
   const [mealData, setMealData] = useState(null);
   function GetMealData(mealData) {
     setMealData(mealData);
-    console.log("MealData updated: ", { mealData });
   }
 
   //NewMeal lets SearchMeal know when to fetch a new meal
