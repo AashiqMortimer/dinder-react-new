@@ -12,7 +12,6 @@ const ModalLink = () => {
     <div className="modal__window">
         <IconButton onClick={toggle}>
             <AccountCircleIcon className="account__icon" 
-            //fontSize="large" 
             />
         </IconButton>
       <Modal size="xl" isOpen={modal} toggle={toggle}>
