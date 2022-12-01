@@ -31,14 +31,12 @@ export default function ChatScreen() {
     const [allInfo, setAllInfo] = useState(null);
     function GetAllInfo(allInfo) {
         setAllInfo(allInfo);
-        console.log(allInfo)
     }
 
     //GetIngred collects the ingredient list
     const [ingred, setIngred] = useState(null);
     function GetIngred(ingred) {
         setIngred(ingred);
-        console.log(ingred)
     }
 
     //GetSteps collects the recipe steps
@@ -63,8 +61,6 @@ export default function ChatScreen() {
             )
         }
     }
-
-
     return (
         <div>
             <div >
