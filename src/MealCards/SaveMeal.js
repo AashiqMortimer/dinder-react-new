@@ -40,6 +40,7 @@ export default function saveRecipe({ mealData }) {
 
         //storing saved meal in DB
         if (!mealSaved) {
+          console.log(mealData)
           axios.post('https://dinder-backend-zaar.herokuapp.com/card', mealData)
             .then(function (response) {
               console.log(response)

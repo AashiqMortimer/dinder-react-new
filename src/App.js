@@ -19,7 +19,6 @@ function App() {
   const [profile, setProfile] = useState(null);
   function UserProfile(profile) {
     setProfile(profile);
-    console.log(profile.isAdmin);
   }
 
   return (

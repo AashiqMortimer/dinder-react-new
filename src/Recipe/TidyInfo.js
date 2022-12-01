@@ -3,7 +3,7 @@ import { useEffect } from "react";
 //TidyInfo processes the information gathered from the API into lists
 export default function TidyInfo({ allInfo, getIngred, getSteps, newRecipeNeeded, newRecipe }) {
     useEffect(() => {
-        if (newRecipeNeeded === "true") {
+        if (newRecipeNeeded === true) {
             let temp = [];
             let ingred = [];
             let step = [];
